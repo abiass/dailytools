@@ -1,5 +1,7 @@
 // src/App.jsx
 import React from "react";
+import "./index.css";
+import Navbar from "./components/Navbar";
 
 function App() {
   const services = [
@@ -7,11 +9,10 @@ function App() {
   ];
 
   return (
-    <div className="bg-[#E3FDFD] min-h-screen">
+    <div className="">
       {/* Header */}
       <header className="bg-[#CBF1F5] p-1 text-left">
-        <h1 className="text-3xl font-bold ml-8">ProjetoSemNome </h1>
-        <h2 className="text-p13 font-semibold mb-4 ml-8">Ferramentas Online</h2>
+        <Navbar />
       </header>
 
       <main className="p-6 ml-50">Calculadoras</main>
@@ -25,8 +26,9 @@ function App() {
             )
           }
         >
-          Regra de 3<p> Calcule proporções facilmente</p>
+          Regra de 3
         </li>
+        <p className="text-[12px]"> Calcule proporções facilmente</p>
       </ul>
     </div>
   );
