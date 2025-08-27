@@ -1,5 +1,3 @@
-// src/pages/Regra3.jsx
-
 import { useState } from "react";
 
 function Regra3() {
@@ -9,7 +7,7 @@ function Regra3() {
   const [resultado, setResultado] = useState(null);
 
   const calcular = async () => {
-    const response = await fetch("http://localhost:3000/regra3", {
+    const response = await fetch("http://localhost:3001/regra3", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ a: Number(a), b: Number(b), c: Number(c) }),
