@@ -20,10 +20,7 @@ function App() {
         <li
           className="bg-blue-500 text-white px-4 py-2 rounded inline-block cursor-pointer"
           onClick={() =>
-            window.open(
-              "https://colorhunt.co/palette/e3fdfdcbf1f5a6e3e971c9ce",
-              "_blank"
-            )
+            window.open("https://github.com/abiass/Primeiro-Projeto", "_blank")
           }
         >
           Regra de 3
