@@ -13,7 +13,7 @@ function Navbar() {
 
         {/* Botão hambúrguer - só aparece em telas pequenas */}
         <button
-          className="md:hidden text-gray-700 hover:text-[#71C9CE] transition"
+          className="md:hidden text-gray-700 hover:text-[#71C9CE] transition cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}

@@ -1,33 +1,58 @@
 // src/App.jsx
 import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import "./index.css";
 import Navbar from "./components/Navbar";
+import Regra3 from "./components/Regra3"; // tela de cálculo
 
-function App() {
-  const services = [
-    { name: "Regra de 3", description: "Calcule proporções facilmente" },
-  ];
+function Home() {
+  const navigate = useNavigate();
 
   return (
-    <div className="">
+    <div>
       {/* Header */}
       <header className="bg-[#CBF1F5] p-1 text-left">
         <Navbar />
       </header>
 
-      <main className="p-6 ml-50">Calculadoras</main>
-      <ul className="p-6 ml-50 mt-1">
-        <li
-          className="bg-blue-500 text-white px-4 py-2 rounded inline-block cursor-pointer"
-          onClick={() =>
-            window.open("https://github.com/abiass/Primeiro-Projeto", "_blank")
-          }
-        >
-          Regra de 3
-        </li>
-        <p className="text-[12px]"> Calcule proporções facilmente</p>
-      </ul>
+      {/* Página inicial */}
+      <main className="flex flex-col items-center mt-5 p-1 w-full max-w-xl">
+        <h2 className="text-3xl font-bold mb-8 text-indigo-700 text-center">
+          Calculadoras
+        </h2>
+
+        <ul className="w-full flex flex-col items-center gap-4 sm:gap-1">
+          <li
+            className="bg-blue-500 text-white px-6 py-3 rounded-xl cursor-pointer shadow-lg hover:bg-blue-600 transition duration-200 text-center"
+            onClick={() => navigate("/regra3")}
+          >
+            Regra de 3
+          </li>
+          <p className="text-gray-700 text-sm text-center w-full">
+            Calcule proporções facilmente
+          </p>
+
+          {/* Futuras calculadoras podem ser adicionadas aqui */}
+        </ul>
+      </main>
     </div>
+  );
+}
+
+// Envolvendo com Router
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} /> {/* página inicial */}
+        <Route path="/regra3" element={<Regra3 />} /> {/* calculadora */}
+      </Routes>
+    </Router>
   );
 }
 
