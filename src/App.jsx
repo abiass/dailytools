@@ -8,18 +8,14 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import Navbar from "./components/Navbar";
-import Regra3 from "./components/Regra3"; // tela de cálculo
+import Regra3 from "./pages/Regra3"; // tela de cálculo
+import About from "./pages/About"; // tela sobre o projeto
 
 function Home() {
   const navigate = useNavigate();
 
   return (
     <div>
-      {/* Header */}
-      <header className="bg-[#CBF1F5] p-1 text-left">
-        <Navbar />
-      </header>
-
       {/* Página inicial */}
       <main className="flex flex-col items-center mt-5 p-1 w-full max-w-xl">
         <h2 className="text-3xl font-bold mb-8 text-indigo-700 text-center">
@@ -48,9 +44,15 @@ function Home() {
 function App() {
   return (
     <Router>
+      {/* Header */}
+      <header className="bg-[#CBF1F5] p-1 text-left">
+        <Navbar />
+      </header>
+
       <Routes>
         <Route path="/" element={<Home />} /> {/* página inicial */}
         <Route path="/regra3" element={<Regra3 />} /> {/* calculadora */}
+        <Route path="/about" element={<About />} /> {/* calculadora */}
       </Routes>
     </Router>
   );

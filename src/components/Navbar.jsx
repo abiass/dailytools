@@ -1,6 +1,7 @@
 // src/components/Navbar.jsx
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react"; // ícones leves
+import { Link } from "react-router-dom"; // import Link para navegação
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false); // controla se o menu está aberto
@@ -22,12 +23,12 @@ function Navbar() {
         {/* Links - desktop */}
         <ul className="hidden md:flex space-x-6">
           <li>
-            <a
-              href="#home"
+            <Link
+              to="/"
               className="text-gray-700 hover:text-[#71C9CE] transition"
             >
               Home
-            </a>
+            </Link>
           </li>
           <li>
             <a
@@ -38,12 +39,12 @@ function Navbar() {
             </a>
           </li>
           <li>
-            <a
-              href="#sobre"
+            <Link
+              to="/about"
               className="text-gray-700 hover:text-[#71C9CE] transition"
             >
               Sobre
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
@@ -52,17 +53,19 @@ function Navbar() {
       {isOpen && (
         <ul className="md:hidden flex flex-col space-y-4 mt-4">
           <li>
-            <a
-              href="#home"
+            <Link
+              to="/"
               className="block text-gray-700 hover:text-[#71C9CE] transition"
+              onClick={() => setIsOpen(false)} // fecha menu ao clicar
             >
               Home
-            </a>
+            </Link>
           </li>
           <li>
             <a
               href="#ferramentas"
               className="block text-gray-700 hover:text-[#71C9CE] transition"
+              onClick={() => setIsOpen(false)}
             >
               Ferramentas
             </a>
@@ -71,6 +74,7 @@ function Navbar() {
             <a
               href="#sobre"
               className="block text-gray-700 hover:text-[#71C9CE] transition"
+              onClick={() => setIsOpen(false)}
             >
               Sobre
             </a>
