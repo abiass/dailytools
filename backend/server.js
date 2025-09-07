@@ -6,8 +6,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const teste = [ 12, 15, 11 ]; // Exemplo de valores iniciais
-
 // rota regra de 3
 app.post("/regra3", (req, res) => {
   const { a, b, c } = req.body;

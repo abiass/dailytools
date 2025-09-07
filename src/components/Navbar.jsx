@@ -4,15 +4,15 @@ import { Menu, X } from "lucide-react"; // ícones leves
 import { Link } from "react-router-dom"; // import Link para navegação
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false); // controla se o menu está aberto
+  const [isOpen, setIsOpen] = useState(false); // controlar se o menu está aberto
 
   return (
     <nav className="bg-[#CBF1F5] p-4 shadow-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
-        <h1 className="text-2xl font-bold text-[#71C9CE]">ProjetoSemNome</h1>
+        <h1 className="text-2xl font-bold text-[#71C9CE]">DailyTools</h1>
 
-        {/* Botão hambúrguer - só aparece em telas pequenas */}
+        {/* Botão hamb - só aparece em telas pequenas */}
         <button
           className="md:hidden text-gray-700 hover:text-[#71C9CE] transition cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}

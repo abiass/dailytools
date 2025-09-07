@@ -10,6 +10,7 @@ import "./index.css";
 import Navbar from "./components/Navbar";
 import Regra3 from "./pages/Regra3"; // tela de cálculo
 import About from "./pages/About"; // tela sobre o projeto
+import ConversorTempo from "./pages/ConversorTempo"; // tela sobre o projeto
 
 function Home() {
   const navigate = useNavigate();
@@ -27,11 +28,17 @@ function Home() {
             className="bg-blue-500 text-white px-6 py-3 rounded-xl cursor-pointer shadow-lg hover:bg-blue-600 transition duration-200 text-center"
             onClick={() => navigate("/regra3")}
           >
-            Regra de 3
+            <strong>Regra de 3</strong>
+            <p>Calcule proporções facilmente</p>
           </li>
-          <p className="text-gray-700 text-sm text-center w-full">
-            Calcule proporções facilmente
-          </p>
+
+          <li
+            className="bg-blue-500 text-white px-6 py-3 rounded-xl cursor-pointer shadow-lg hover:bg-blue-600 transition duration-200 text-center"
+            onClick={() => navigate("/tempo")}
+          >
+            <strong>Conversor de Tempo</strong>
+            <p>Converta dias, horas, minutos e segundos</p>
+          </li>
 
           {/* Futuras calculadoras podem ser adicionadas aqui */}
         </ul>
@@ -53,6 +60,7 @@ function App() {
         <Route path="/" element={<Home />} /> {/* página inicial */}
         <Route path="/regra3" element={<Regra3 />} /> {/* calculadora */}
         <Route path="/about" element={<About />} /> {/* calculadora */}
+        <Route path="/tempo" element={<ConversorTempo />} />
       </Routes>
     </Router>
   );
