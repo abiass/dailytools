@@ -6,13 +6,26 @@ function Regra3() {
   const [b, setB] = useState("");
   const [c, setC] = useState("");
   const [resultado, setResultado] = useState(null);
+  const calcular = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/api/regra3", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ a, b, c }),
+      });
 
-  const calcular = () => {
-    if (a && b && c) {
-      setResultado(((b * c) / a).toFixed(2));
+      const data = await response.json();
+
+      if (data.resultado) {
+        setResultado(data.resultado);
+      } else {
+        setResultado("Erro no cálculo");
+      }
+    } catch (error) {
+      console.error("Erro ao calcular:", error);
+      setResultado("Erro de conexão com o servidor");
     }
   };
-
   return (
     <div className="p-6 max-w-xl mx-auto flex flex-col items-center">
       {/* Título */}
