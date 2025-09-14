@@ -11,7 +11,8 @@ app.post("/api/regra3", (req, res) => {
   const { a, b, c } = req.body;
 
   if (!a || !b || !c) {
-    return res.status(400).json({ error: "Todos os valores são obrigatórios" });
+    return res.json({ resultado: convertido.toFixed(2) });
+
   }
 
   const resultado = (b * c) / a;

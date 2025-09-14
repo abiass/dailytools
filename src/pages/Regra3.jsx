@@ -6,6 +6,7 @@ function Regra3() {
   const [b, setB] = useState("");
   const [c, setC] = useState("");
   const [resultado, setResultado] = useState(null);
+
   const calcular = async () => {
     try {
       const response = await fetch("http://localhost:5000/api/regra3", {

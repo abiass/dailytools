@@ -30,14 +30,7 @@ function Navbar() {
               Home
             </Link>
           </li>
-          <li>
-            <a
-              href="#ferramentas"
-              className="text-gray-700 hover:text-[#71C9CE] transition"
-            >
-              Ferramentas
-            </a>
-          </li>
+
           <li>
             <Link
               to="/about"
