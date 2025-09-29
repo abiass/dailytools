@@ -11,6 +11,8 @@ import Navbar from "./components/Navbar";
 import Regra3 from "./pages/Regra3"; // tela de cálculo
 import About from "./pages/About"; // tela sobre o projeto
 import ConversorTempo from "./pages/ConversorTempo"; // tela sobre o projeto
+import NotFound from "./pages/NotFound";
+import Footer from "./components/Footer";
 
 function Home() {
   const navigate = useNavigate();
@@ -20,7 +22,7 @@ function Home() {
       {/* Página inicial */}
       <main className="flex flex-col items-center mt-5 p-1 w-full max-w-xl">
         <h2 className="text-3xl font-bold mb-8 text-indigo-700 text-center">
-          Calculadoras
+          Ferramentas
         </h2>
 
         <ul className="w-full flex flex-col items-center gap-4 sm:gap-1">
@@ -51,17 +53,26 @@ function Home() {
 function App() {
   return (
     <Router>
-      {/* Header */}
-      <header className="bg-[#CBF1F5] p-1 text-left">
-        <Navbar />
-      </header>
+      <div className="flex flex-col min-h-screen">
+        {/* Header fixo no topo */}
+        <header className="bg-blue-600 p-1 text-left">
+          <Navbar />
+        </header>
 
-      <Routes>
-        <Route path="/" element={<Home />} /> {/* página inicial */}
-        <Route path="/regra3" element={<Regra3 />} /> {/* calculadora */}
-        <Route path="/about" element={<About />} /> {/* calculadora */}
-        <Route path="/tempo" element={<ConversorTempo />} />
-      </Routes>
+        {/* Conteúdo principal cresce e empurra o rodapé */}
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/regra3" element={<Regra3 />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/tempo" element={<ConversorTempo />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+
+        {/* Rodapé fixo no final */}
+        <Footer />
+      </div>
     </Router>
   );
 }

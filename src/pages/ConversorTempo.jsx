@@ -17,7 +17,7 @@ function ConverterTempo() {
 }
 
 const ConversorTempo = () => {
-  return <div>ConversorTempo</div>;
+  return <div>Em desenvolvimento</div>;
 };
 
 export default ConversorTempo;
