@@ -7,14 +7,17 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false); // controlar se o menu está aberto
 
   return (
-    <nav className="bg-[#CBF1F5] p-4 shadow-md">
+    <nav className="bg-blue-600 p-4 shadow-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
-        <h1 className="text-2xl font-bold text-[#71C9CE]">DailyTools</h1>
+
+        <Link to="/" className="text-2xl font-bold text-blue-200">
+          DailyTools
+        </Link>
 
         {/* Botão hamb - só aparece em telas pequenas */}
         <button
-          className="md:hidden text-gray-700 hover:text-[#71C9CE] transition cursor-pointer"
+          className="md:hidden text-blue-200 hover:text-gray-700 transition cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -25,7 +28,7 @@ function Navbar() {
           <li>
             <Link
               to="/"
-              className="text-gray-700 hover:text-[#71C9CE] transition"
+              className="text-blue-200 hover:text-gray-700 transition cursor-pointer"
             >
               Home
             </Link>
@@ -34,7 +37,7 @@ function Navbar() {
           <li>
             <Link
               to="/about"
-              className="text-gray-700 hover:text-[#71C9CE] transition"
+              className="text-blue-200 hover:text-gray-700 transition cursor-pointer"
             >
               Sobre
             </Link>
@@ -48,29 +51,22 @@ function Navbar() {
           <li>
             <Link
               to="/"
-              className="block text-gray-700 hover:text-[#71C9CE] transition"
+              className="block text-blue-200 hover:text-gray-700 transition cursor-pointer"
               onClick={() => setIsOpen(false)} // fecha menu ao clicar
             >
               Home
             </Link>
           </li>
+
           <li>
-            <a
-              href="#ferramentas"
-              className="block text-gray-700 hover:text-[#71C9CE] transition"
+            <Link
+              to="/About"
+              className="block text-blue-200 hover:text-gray-700 transition cursor-pointer"
               onClick={() => setIsOpen(false)}
             >
-              Ferramentas
-            </a>
-          </li>
-          <li>
-            <a
-              href="#sobre"
-              className="block text-gray-700 hover:text-[#71C9CE] transition"
-              onClick={() => setIsOpen(false)}
-            >
+              {" "}
               Sobre
-            </a>
+            </Link>
           </li>
         </ul>
       )}

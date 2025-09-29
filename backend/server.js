@@ -19,6 +19,14 @@ app.post("/api/regra3", (req, res) => {
   res.json({ resultado: resultado.toFixed(2) });
 });
 
+
+// Rota para o conversor de tempo
+app.post("/api/conversor-tempo", (req, res) => {
+  const { valor, unidadeOrigem, unidadeDestino } = req.body;
+  res.json({ resultado: "Funcionalidade em desenvolvimento" });
+})
+
+
 const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`✅ Servidor rodando em http://localhost:${PORT}`);
