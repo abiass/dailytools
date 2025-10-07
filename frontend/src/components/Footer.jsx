@@ -20,7 +20,7 @@ function Footer() {
             GitHub
           </a>
           <a
-            href="https://linkedin.com/abiasmelo"
+            href="https://www.linkedin.com/in/abiasmelo/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-[#71C9CE] transition"
