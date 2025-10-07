@@ -11,7 +11,7 @@ app.post("/api/regra3", (req, res) => {
   const { a, b, c } = req.body;
 
   if (!a || !b || !c) {
-    return res.json({ resultado: convertido.toFixed(2) });
+    return res.status(400).json({ erro: "Parâmetros inválidos. Envie a, b e c." });
 
   }
 
@@ -21,10 +21,10 @@ app.post("/api/regra3", (req, res) => {
 
 
 // Rota para o conversor de tempo
-app.post("/api/conversor-tempo", (req, res) => {
-  const { valor, unidadeOrigem, unidadeDestino } = req.body;
-  res.json({ resultado: "Funcionalidade em desenvolvimento" });
-})
+//app.post("/api/conversor-tempo", (req, res) => {
+ // const { valor, unidadeOrigem, unidadeDestino } = req.body;
+ // res.json({ resultado: "Funcionalidade em desenvolvimento" });
+//})
 
 
 const PORT = 5000;
