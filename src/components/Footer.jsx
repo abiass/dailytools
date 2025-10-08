@@ -28,7 +28,7 @@ function Footer() {
           >
             LinkedIn
           </a>
-          <Link to="/about" className="hover:text-[#71C9CE] transition">
+          <Link to="/About" className="hover:text-[#71C9CE] transition">
             Sobre
           </Link>
         </div>
