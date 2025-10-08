@@ -7,7 +7,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 import "./index.css";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
 import Regra3 from "./pages/Regra3"; // tela de cálculo
 import About from "./pages/About"; // tela sobre o projeto
 import ConversorTempo from "./pages/ConversorTempo"; // tela sobre o projeto
