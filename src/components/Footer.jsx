@@ -26,10 +26,12 @@ function Footer() {
             className="hover:text-[#71C9CE] transition"
           >
             LinkedIn
-          </a>
-          <a href="/about" className="hover:text-[#71C9CE] transition">
-            Sobre
-          </a>
+<Link
+              to="/about"
+              className="text-blue-200 hover:text-gray-700 transition cursor-pointer"
+            >
+              Sobre
+            </Link>
         </div>
       </div>
     </footer>
