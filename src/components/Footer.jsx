@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -27,9 +28,9 @@ function Footer() {
           >
             LinkedIn
           </a>
-          <a href="/about" className="hover:text-[#71C9CE] transition">
+          <Link to="/about" className="hover:text-[#71C9CE] transition">
             Sobre
-          </a>
+          </Link>
         </div>
       </div>
     </footer>
