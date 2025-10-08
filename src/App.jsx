@@ -34,13 +34,13 @@ function Home() {
             <p>Calcule proporções facilmente</p>
           </li>
 
-          <li
+          {/* <li
             className="bg-blue-500 text-white px-6 py-3 rounded-xl cursor-pointer shadow-lg hover:bg-blue-600 transition duration-200 text-center"
             onClick={() => navigate("/tempo")}
           >
             <strong>Conversor de Tempo</strong>
             <p>Converta dias, horas, minutos e segundos</p>
-          </li>
+          </li> */}
 
           {/* Futuras calculadoras podem ser adicionadas aqui */}
         </ul>
