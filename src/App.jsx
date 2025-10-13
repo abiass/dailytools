@@ -10,9 +10,9 @@ import "./index.css";
 import Navbar from "./components/Navbar";
 import Regra3 from "./pages/Regra3"; // tela de cálculo
 import About from "./pages/About"; // tela sobre o projeto
-import ConversorTempo from "./pages/ConversorTempo"; // tela sobre o projeto
 import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
+import CharacterRemove from "./pages/CharacterRemove";
 
 function Home() {
   const navigate = useNavigate();
@@ -35,11 +35,14 @@ function Home() {
           </li>
 
           <li
-            className="bg-blue-500 text-white px-6 py-3 rounded-xl cursor-pointer shadow-lg hover:bg-blue-600 transition duration-200 text-center"
-            onClick={() => navigate("/tempo")}
+            className="bg-blue-500 text-white px-6 py-1 rounded-xl cursor-pointer shadow-lg hover:bg-blue-600 transition duration-200 text-center"
+            onClick={() => navigate("/characterremove")}
           >
-            <strong>Conversor de Tempo</strong>
-            <p>Converta dias, horas, minutos e segundos</p>
+            <strong>Remover Caracteres Especiais</strong>
+            <p>
+              Remova tudo que não for <br />
+              letra ou número
+            </p>
           </li>
 
           {/* Futuras calculadoras podem ser adicionadas aqui */}
@@ -65,7 +68,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/regra3" element={<Regra3 />} />
             <Route path="/about" element={<About />} />
-            <Route path="/tempo" element={<ConversorTempo />} />
+            <Route path="/characterremove" element={<CharacterRemove />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
