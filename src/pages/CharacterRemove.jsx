@@ -6,11 +6,14 @@ const CharacterRemove = () => {
 
   const remove = async () => {
     try {
-      const response = await fetch("https://api-nodejs-goer.onrender.com/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text }), // deve ser "texto", igual no backend
-      });
+      const response = await fetch(
+        "https://api-nodejs-goer.onrender.com/api/removeChars",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text }), // deve ser "texto", igual no backend
+        }
+      );
 
       const data = await response.json();
 
