@@ -17,7 +17,7 @@ function Navbar() {
 
         {/* Botão hamb - só aparece em telas pequenas */}
         <button
-          className="md:hidden text-blue-200 hover:text-gray-700 transition cursor-pointer"
+          className="md:hidden text-blue-200 hover:text-gray-700 transition cursor-pointer dark:hover:text-gray-300"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -28,7 +28,7 @@ function Navbar() {
           <li>
             <Link
               to="/"
-              className="text-blue-200 hover:text-gray-700 transition cursor-pointer"
+              className="text-blue-200 hover:text-gray-700 transition cursor-pointer dark:hover:text-gray-300"
             >
               Home
             </Link>
@@ -37,7 +37,7 @@ function Navbar() {
           <li>
             <Link
               to="/about"
-              className="text-blue-200 hover:text-gray-700 transition cursor-pointer"
+              className="text-blue-200 hover:text-gray-700 transition cursor-pointer dark:hover:text-gray-300"
             >
               Sobre
             </Link>
@@ -51,7 +51,7 @@ function Navbar() {
           <li>
             <Link
               to="/"
-              className="block text-blue-200 hover:text-gray-700 transition cursor-pointer"
+              className="block text-blue-200 hover:text-gray-700 transition cursor-pointer dark:hover:text-gray-300"
               onClick={() => setIsOpen(false)} // fecha menu ao clicar
             >
               Home

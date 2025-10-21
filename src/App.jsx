@@ -56,7 +56,7 @@ function Home() {
 function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen dark:bg-gray-700">
         {/* Header fixo no topo */}
         <header>
           <Navbar />

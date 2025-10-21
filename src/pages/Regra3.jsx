@@ -31,9 +31,11 @@ function Regra3() {
     }
   };
   return (
-    <div className="p-6 max-w-xl mx-auto flex flex-col items-center">
+    <div className="p-6 max-w-xl mx-auto flex flex-col items-center dark:text-white">
       {/* Título */}
-      <h1 className="text-2xl font-bold mb-6 text-center">Regra de 3</h1>
+      <h1 className="text-2xl font-bold mb-6 text-center  dark:text-indigo-300">
+        Regra de 3
+      </h1>
 
       {/* Primeira linha */}
       <div className="flex flex-col sm:flex-row items-center justify-center sm:space-x-4 mb-4 w-full">
@@ -44,7 +46,7 @@ function Regra3() {
           value={a}
           onChange={(e) => setA(e.target.value)}
         />
-        <div className="bg-blue-100 px-4 py-1 rounded text-center">
+        <div className="bg-blue-100 px-4 py-1 rounded text-center dark:bg-purple-500">
           Está para
         </div>
         <input
@@ -57,7 +59,7 @@ function Regra3() {
       </div>
 
       {/* Texto central */}
-      <div className="text-center bg-yellow-100 px-4 py-2 rounded mb-4">
+      <div className="text-center bg-yellow-100 px-4 py-2 rounded mb-4 dark:bg-yellow-600">
         Assim como
       </div>
 
@@ -70,10 +72,10 @@ function Regra3() {
           value={c}
           onChange={(e) => setC(e.target.value)}
         />
-        <div className="bg-blue-100 px-4 py-1 rounded text-center">
+        <div className="bg-blue-100 px-4 py-1 rounded text-center dark:bg-purple-500">
           Está para
         </div>
-        <span className="bg-green-100 px-6 py-2 rounded-full text-center mb-2 sm:mb-0 mt-2">
+        <span className="bg-green-100 px-6 py-2 rounded-full text-center mb-2 sm:mb-0 mt-2 dark:bg-green-500">
           {/* Resultado */}
           {resultado !== null && (
             <p className="mt-0 text-center">
