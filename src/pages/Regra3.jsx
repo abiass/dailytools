@@ -46,7 +46,7 @@ function Regra3() {
           value={a}
           onChange={(e) => setA(e.target.value)}
         />
-        <div className="bg-blue-100 px-4 py-1 rounded text-center dark:bg-purple-500">
+        <div className="bg-blue-100 text-bold px-4 py-1 rounded text-center dark:bg-indigo-500">
           Está para
         </div>
         <input
@@ -59,7 +59,7 @@ function Regra3() {
       </div>
 
       {/* Texto central */}
-      <div className="text-center bg-yellow-100 px-4 py-2 rounded mb-4 dark:bg-yellow-600">
+      <div className="text-center text-bold bg-yellow-100 px-4 py-2 rounded mb-4 dark:bg-orange-300">
         Assim como
       </div>
 
@@ -72,7 +72,7 @@ function Regra3() {
           value={c}
           onChange={(e) => setC(e.target.value)}
         />
-        <div className="bg-blue-100 px-4 py-1 rounded text-center dark:bg-purple-500">
+        <div className="bg-blue-100 text-bold px-4 py-1 rounded text-center dark:bg-indigo-500">
           Está para
         </div>
         <span className="bg-green-100 px-6 py-2 rounded-full text-center mb-2 sm:mb-0 mt-2 dark:bg-green-500">
@@ -84,7 +84,7 @@ function Regra3() {
           )}
         </span>
         <button
-          className="bg-blue-500 text-white px-4 py-2 rounded w-full sm:w-auto mt-2 sm:mt-0 transition cursor-pointer hover:bg-blue-600"
+          className="bg-blue-500 text-bold text-white px-4 py-2 rounded w-full sm:w-auto mt-2 sm:mt-0 transition cursor-pointer hover:bg-blue-600"
           onClick={calcular}
         >
           Calcular
