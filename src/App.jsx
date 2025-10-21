@@ -18,16 +18,16 @@ function Home() {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className="dark:bg-gray-700 min-h-screen flex ">
       {/* Página inicial */}
-      <main className="flex flex-col items-center mt-5 p-1 w-full max-w-xl">
-        <h2 className="text-3xl font-bold mb-8 text-indigo-700 text-center">
+      <main className="flex flex-col items-center mt-5 p-1 w-full max-w-xl dark:text-white">
+        <h2 className="text-3xl font-bold mb-8 text-indigo-700 text-center dark:text-indigo-300">
           Ferramentas
         </h2>
 
         <ul className="w-full flex flex-col items-center gap-4 sm:gap-1">
           <li
-            className="bg-blue-500 text-white px-6 py-3 rounded-xl cursor-pointer shadow-lg hover:bg-blue-600 transition duration-200 text-center"
+            className="bg-blue-500 text-white px-6 py-3 rounded-xl cursor-pointer shadow-lg hover:bg-blue-600 transition duration-200 text-center dark:bg-blue-900 dark:hover:bg-blue-800"
             onClick={() => navigate("/regra3")}
           >
             <strong>Regra de 3</strong>
@@ -35,7 +35,7 @@ function Home() {
           </li>
 
           <li
-            className="bg-blue-500 text-white px-6 py-1 rounded-xl cursor-pointer shadow-lg hover:bg-blue-600 transition duration-200 text-center"
+            className="bg-blue-500 text-white px-6 py-1 rounded-xl cursor-pointer shadow-lg hover:bg-blue-600 transition duration-200 text-center  dark:bg-blue-900 dark:hover:bg-blue-800"
             onClick={() => navigate("/characterremove")}
           >
             <strong>Remover Caracteres Especiais</strong>
@@ -58,7 +58,7 @@ function App() {
     <Router>
       <div className="flex flex-col min-h-screen">
         {/* Header fixo no topo */}
-        <header className="bg-blue-600 p-1 text-left">
+        <header>
           <Navbar />
         </header>
 

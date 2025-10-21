@@ -7,7 +7,7 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false); // controlar se o menu está aberto
 
   return (
-    <nav className="bg-blue-600 p-4 shadow-md">
+    <nav className="bg-blue-600 p-4 shadow-md dark:bg-gray-800">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
 
