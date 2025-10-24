@@ -5,6 +5,13 @@ import { Link } from "react-router-dom"; // import Link para navegação
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false); // controlar se o menu está aberto
+  {
+    /*const [isDarkMode, setIsDarkMode] = useState(false); // controlar modo escuro
+
+  // const toggleDarkMode = () => {
+  //   setIsDarkMode(!isDarkMode);
+  //  };*/
+  }
 
   return (
     <nav className="bg-blue-600 p-4 shadow-md dark:bg-gray-800">
@@ -14,7 +21,9 @@ function Navbar() {
         <Link to="/" className="text-2xl font-bold text-blue-200">
           DailyTools
         </Link>
-
+        {/*<button className="cursor-pointer" onClick={setIsDarkMode}>
+          Dark Mode
+        </button>*/}
         {/* Botão hamb - só aparece em telas pequenas */}
         <button
           className="md:hidden text-blue-200 hover:text-gray-700 transition cursor-pointer dark:hover:text-gray-300"

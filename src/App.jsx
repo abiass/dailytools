@@ -13,6 +13,7 @@ import About from "./pages/About"; // tela sobre o projeto
 import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
 import CharacterRemove from "./pages/CharacterRemove";
+import TextFormat from "./pages/TextFormat";
 
 function Home() {
   const navigate = useNavigate();
@@ -41,7 +42,17 @@ function Home() {
             <strong>Remover Caracteres Especiais</strong>
             <p>
               Remova tudo que não for <br />
-              letra ou número
+              letra ou número.
+            </p>
+          </li>
+          <li
+            className="bg-blue-500 text-white px-6 py-1 rounded-xl cursor-pointer shadow-lg hover:bg-blue-600 transition duration-200 text-center  dark:bg-blue-900 dark:hover:bg-blue-800"
+            onClick={() => navigate("/textformat")}
+          >
+            <strong>Formatador de Texto</strong>
+            <p>
+              Coloque seu texto em caixa alta, <br />
+              caixa baixa ou apenas <br />a primeira letra maiúscula.
             </p>
           </li>
 
@@ -69,6 +80,7 @@ function App() {
             <Route path="/regra3" element={<Regra3 />} />
             <Route path="/about" element={<About />} />
             <Route path="/characterremove" element={<CharacterRemove />} />
+            <Route path="/textformat" element={<TextFormat />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
