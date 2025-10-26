@@ -32,7 +32,7 @@ function Home() {
             onClick={() => navigate("/regra3")}
           >
             <strong>Regra de 3</strong>
-            <p>Calcule proporções facilmente</p>
+            <p>Calcule proporções facilmente.</p>
           </li>
 
           <li
@@ -51,8 +51,9 @@ function Home() {
           >
             <strong>Formatador de Texto</strong>
             <p>
-              Coloque seu texto em caixa alta, <br />
-              caixa baixa ou apenas <br />a primeira letra maiúscula.
+              Coloque seu texto em caixa alta
+              <br />
+              ou caixa baixa.
             </p>
           </li>
 
