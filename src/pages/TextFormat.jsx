@@ -38,7 +38,7 @@ const TextFormat = () => {
       <div className="w-full flex flex-col items-center gap-4 sm:gap-2 ">
         {/* Texto de entrada */}
         <textarea
-          className="border px-3 py-2 rounded w-full sm:w-96 resize-y min-h-[44px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:text-white dark:bg-gray-800 dark:focus:ring-indigo-500"
+          className="border px-3 py-2 rounded w-full sm:w-96 resize min-h-[44px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:text-white dark:bg-gray-800 dark:focus:ring-indigo-500"
           placeholder="Digite aqui o texto para ser formatado."
           rows="3"
           value={text}
@@ -55,14 +55,14 @@ const TextFormat = () => {
 
         {/* Resultado */}
         <textarea
-          className="border px-3 py-2 rounded w-full sm:w-96 resize-y min-h-[44px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:text-white dark:bg-gray-800 dark:focus:ring-indigo-500"
+          className="border px-3 py-2 rounded w-full sm:w-96 resize min-h-[44px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:text-white dark:bg-gray-800 dark:focus:ring-indigo-500"
           placeholder="Resultado com todas letras em caixa alta."
           rows="3"
           readOnly
           value={resultadoCaixaAlta}
         />
         <textarea
-          className="border px-3 py-2 rounded w-full sm:w-96 resize-y min-h-[44px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:text-white dark:bg-gray-800 dark:focus:ring-indigo-500"
+          className="border px-3 py-2 rounded w-full sm:w-96 resize min-h-[44px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:text-white dark:bg-gray-800 dark:focus:ring-indigo-500"
           placeholder="Resultado com todas letras em caixa baixa."
           rows="3"
           readOnly

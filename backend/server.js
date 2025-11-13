@@ -48,6 +48,23 @@ app.post("/api/textformat", (req, res) => {
 
   });
 });
+
+app.post("/api/charcount", (req, res) => {
+  const { text } = req.body;
+
+  if (!text || text.trim() === "") {
+    return res.json({ charCount: 0, wordCount: 0 });
+  }
+
+  const trimmed = text.trim();
+
+  const charCount = Array.from(text).length;
+ 
+  const wordCount = trimmed ? trimmed.split(/\s+/).length : 0;
+
+  res.json({ charCount, wordCount });
+});
+
 const PORT = 5000;
 app.listen(PORT, () => {
   console.log(` Servidor rodando em http://localhost:${PORT}`);
