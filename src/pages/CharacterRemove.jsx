@@ -51,10 +51,10 @@ const CharacterRemove = () => {
 
         {/* Botão */}
         <button
-          disabled={loading}
           onClick={remove}
           type="button"
-          className="bg-blue-500 text-bold text-white px-4 py-2 rounded w-full sm:w-auto transition cursor-pointer hover:bg-blue-600"
+          className="bg-blue-500 text-bold text-white px-4 py-2 rounded w-full sm:w-auto transition cursor-pointer hover:bg-blue-600 disabled:opacity-60 disabled:cursor-not-allowed"
+          disabled={loading}
         >
           {loading ? (
             <div className="flex items-center gap-2">

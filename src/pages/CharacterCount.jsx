@@ -48,7 +48,7 @@ const CharacterCount = () => {
         <button
           disabled={loading}
           onClick={count}
-          className="bg-blue-500 cursor-pointer text-white px-4 py-2 rounded w-full sm:w-auto hover:bg-blue-600"
+          className="bg-blue-500 cursor-pointer text-white px-4 py-2 rounded w-full sm:w-auto hover:bg-blue-600 disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {loading ? (
             <div className="flex items-center gap-2">

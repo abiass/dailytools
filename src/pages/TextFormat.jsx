@@ -44,7 +44,7 @@ const TextFormat = () => {
       <div className="w-full flex flex-col items-center gap-4 sm:gap-2 ">
         {/* Texto de entrada */}
         <textarea
-          className="border px-3 py-2 rounded w-full sm:w-96 resize min-h-[44px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:text-white dark:bg-gray-800 dark:focus:ring-indigo-500"
+          className="border px-3 py-2 rounded w-full sm:w-96 resize min-h-[44px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:text-white dark:bg-gray-800 dark:focus:ring-indigo-500 "
           placeholder="Digite aqui o texto para ser formatado."
           rows="3"
           value={text}
@@ -55,7 +55,7 @@ const TextFormat = () => {
         <button
           onClick={formatar}
           disabled={loading}
-          className="bg-blue-500 font-bold text-white px-4 py-2 rounded w-full sm:w-auto transition cursor-pointer hover:bg-blue-600"
+          className="bg-blue-500 font-bold text-white px-4 py-2 rounded w-full sm:w-auto transition cursor-pointer hover:bg-blue-600 disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {loading ? (
             <div className="flex items-center gap-2">
