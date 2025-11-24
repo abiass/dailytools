@@ -65,7 +65,22 @@ app.post("/api/charcount", (req, res) => {
   res.json({ charCount, wordCount });
 });
 
+app.post("/api/sorteio", (req, res) => {
+  const { text } = req.body;
+  if (!text) return res.status(400).json({ erro: "Texto obrigatório." }); 
+
+  const names = text.split(/[\s,]+/).filter(Boolean);
+  if (names.length === 0) {
+    return res.status(400).json({ erro: "Nenhum nome válido fornecido." });
+  } 
+  const randomIndex = Math.floor(Math.random() * names.length);
+  const result = names[randomIndex]; 
+  res.json({ result });
+});
+
 const PORT = 5000;
 app.listen(PORT, () => {
   console.log(` Servidor rodando em http://localhost:${PORT}`);
 });
+
+

@@ -15,6 +15,7 @@ import Footer from "./components/Footer";
 import CharacterRemove from "./pages/CharacterRemove";
 import TextFormat from "./pages/TextFormat";
 import CharacterCount from "./pages/CharacterCount";
+import Sorteio from "./pages/Sorteio";
 
 function Home() {
   const navigate = useNavigate();
@@ -64,7 +65,17 @@ function Home() {
             <strong>Contador de Caracteres</strong>
             <p>
               Conte quantos caracteres tem <br />
-              seu texto
+              seu texto.
+            </p>
+          </li>
+          <li
+            className="bg-blue-500 text-white px-6 py-1 rounded-xl cursor-pointer shadow-lg hover:bg-blue-600 transition duration-200 text-center  dark:bg-blue-900 dark:hover:bg-blue-800"
+            onClick={() => navigate("/sorteio")}
+          >
+            <strong>Sorteio Online</strong>
+            <p>
+              Escolhe uma palavra aleatoria <br />
+              da lista.
             </p>
           </li>
 
@@ -94,6 +105,7 @@ function App() {
             <Route path="/characterremove" element={<CharacterRemove />} />
             <Route path="/textformat" element={<TextFormat />} />
             <Route path="/charactercount" element={<CharacterCount />} />
+            <Route path="Sorteio" element={<Sorteio />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

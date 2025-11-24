@@ -4,10 +4,15 @@ const TextFormat = () => {
   const [text, setText] = useState("");
   const [resultadoCaixaAlta, setResultadoCaixaAlta] = useState("");
   const [resultadoCaixaBaixa, setResultadoCaixaBaixa] = useState("");
+  const [loading, setLoading] = useState(false);
   //const [resultadoPrimeiraMaiuscula, setResultadoPrimeiraMaiuscula] =
   //   useState("");
 
   const formatar = async () => {
+    setLoading(true);
+    setResultadoCaixaAlta(null);
+    setResultadoCaixaBaixa(null);
+
     try {
       const response = await fetch(
         "https://api-nodejs-goer.onrender.com/api/textformat",
@@ -26,6 +31,7 @@ const TextFormat = () => {
     } catch (error) {
       console.error("Erro ao formatar:", error);
     }
+    setLoading(false);
   };
 
   return (
@@ -48,9 +54,17 @@ const TextFormat = () => {
         {/* Botão */}
         <button
           onClick={formatar}
+          disabled={loading}
           className="bg-blue-500 font-bold text-white px-4 py-2 rounded w-full sm:w-auto transition cursor-pointer hover:bg-blue-600"
         >
-          Formatar
+          {loading ? (
+            <div className="flex items-center gap-2">
+              <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+              Formatando...
+            </div>
+          ) : (
+            "Formatar"
+          )}
         </button>
 
         {/* Resultado */}

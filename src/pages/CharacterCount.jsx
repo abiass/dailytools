@@ -4,8 +4,12 @@ const CharacterCount = () => {
   const [text, setText] = useState("");
   const [charCount, setCharCount] = useState(0);
   const [wordCount, setWordCount] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const count = async () => {
+    setLoading(true);
+    setCharCount(0);
+    setWordCount(0);
     try {
       const response = await fetch(
         "https://api-nodejs-goer.onrender.com/api/charcount",
@@ -23,6 +27,7 @@ const CharacterCount = () => {
     } catch (error) {
       console.error("Erro ao contar:", error);
     }
+    setLoading(false);
   };
 
   return (
@@ -41,10 +46,18 @@ const CharacterCount = () => {
         />
 
         <button
+          disabled={loading}
           onClick={count}
           className="bg-blue-500 cursor-pointer text-white px-4 py-2 rounded w-full sm:w-auto hover:bg-blue-600"
         >
-          Contar
+          {loading ? (
+            <div className="flex items-center gap-2">
+              <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+              Contando...
+            </div>
+          ) : (
+            "Contar"
+          )}
         </button>
 
         <div className="border px-2 py-2 rounded w-full sm:w-96 resize min-h-[44px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:text-white dark:bg-gray-800 dark:focus:ring-indigo-500">

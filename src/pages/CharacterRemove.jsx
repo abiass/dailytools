@@ -3,15 +3,18 @@ import { useState } from "react";
 const CharacterRemove = () => {
   const [text, setText] = useState("");
   const [resultado, setResultado] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const remove = async () => {
+    setLoading(true);
+    setResultado(null);
     try {
       const response = await fetch(
         "https://api-nodejs-goer.onrender.com/api/removeChars",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ text }), // deve ser "texto", igual no backend
+          body: JSON.stringify({ text }),
         }
       );
 
@@ -26,6 +29,7 @@ const CharacterRemove = () => {
       console.error("Erro ao remover:", error);
       setResultado("Erro de conexão com o servidor");
     }
+    setLoading(false);
   };
 
   return (
@@ -47,11 +51,19 @@ const CharacterRemove = () => {
 
         {/* Botão */}
         <button
+          disabled={loading}
           onClick={remove}
           type="button"
           className="bg-blue-500 text-bold text-white px-4 py-2 rounded w-full sm:w-auto transition cursor-pointer hover:bg-blue-600"
         >
-          Remover
+          {loading ? (
+            <div className="flex items-center gap-2">
+              <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+              Removendo...
+            </div>
+          ) : (
+            "Remover"
+          )}
         </button>
 
         {/* Resultado */}

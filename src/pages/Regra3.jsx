@@ -6,8 +6,12 @@ function Regra3() {
   const [b, setB] = useState("");
   const [c, setC] = useState("");
   const [resultado, setResultado] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const calcular = async () => {
+    setLoading(true);
+    setResultado(null);
+
     try {
       const response = await fetch(
         "https://api-nodejs-goer.onrender.com/api/regra3",
@@ -29,6 +33,7 @@ function Regra3() {
       console.error("Erro ao calcular:", error);
       setResultado("Erro de conexão com o servidor");
     }
+    setLoading(false);
   };
   return (
     <div className="p-6 max-w-xl mx-auto flex flex-col items-center dark:text-white">
@@ -84,10 +89,18 @@ function Regra3() {
           )}
         </span>
         <button
-          className="bg-blue-500 text-bold text-white px-4 py-2 rounded w-full sm:w-auto mt-2 sm:mt-0 transition cursor-pointer hover:bg-blue-600"
+          className={`bg-blue-500 text-bold text-white px-4 py-2 rounded w-full sm:w-auto mt-2 sm:mt-0 transition cursor-pointer hover:bg-blue-600 disabled:opacity-60 disabled:cursor-not-allowed`}
           onClick={calcular}
+          disabled={loading}
         >
-          Calcular
+          {loading ? (
+            <div className="flex items-center gap-2">
+              <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+              Calculando...
+            </div>
+          ) : (
+            "Calcular"
+          )}
         </button>
       </div>
     </div>
