@@ -32,41 +32,43 @@ const CharacterCount = () => {
 
   return (
     <div className="p-6 max-w-xl mx-auto flex flex-col items-center dark:text-indigo-300">
-      <h1 className="text-2xl font-bold mb-6 text-center">
-        Contar caracteres e palavras
-      </h1>
+      <div className="w-full bg-white dark:bg-gray-900 shadow-lg p-6 rounded-xl flex flex-col gap-6">
+        <h1 className="text-2xl font-bold mb-6 text-center">
+          Contar caracteres e palavras
+        </h1>
 
-      <div className="w-full flex flex-col items-center gap-4">
-        <textarea
-          className="border px-3 py-2 rounded w-full sm:w-96 resize min-h-[44px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:text-white dark:bg-gray-800 dark:focus:ring-indigo-500"
-          placeholder="Digite o texto aqui."
-          rows="3"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
+        <div className="w-full flex flex-col items-center gap-4">
+          <textarea
+            className="border px-3 py-2 rounded w-full sm:w-96 resize min-h-[44px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:text-white dark:bg-gray-800 dark:focus:ring-indigo-500"
+            placeholder="Digite o texto aqui."
+            rows="3"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          />
 
-        <button
-          disabled={loading}
-          onClick={count}
-          className="bg-blue-500 cursor-pointer text-white px-4 py-2 rounded w-full sm:w-auto hover:bg-blue-600 disabled:opacity-60 disabled:cursor-not-allowed"
-        >
-          {loading ? (
-            <div className="flex items-center gap-2">
-              <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-              Contando...
-            </div>
-          ) : (
-            "Contar"
-          )}
-        </button>
+          <button
+            disabled={loading}
+            onClick={count}
+            className="bg-blue-500 cursor-pointer text-white px-4 py-2 rounded w-full sm:w-auto hover:bg-blue-600 disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            {loading ? (
+              <div className="flex items-center gap-2">
+                <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                Contando...
+              </div>
+            ) : (
+              "Contar"
+            )}
+          </button>
 
-        <div className="border px-2 py-2 rounded w-full sm:w-96 resize min-h-[44px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:text-white dark:bg-gray-800 dark:focus:ring-indigo-500">
-          <p>
-            <strong>Caracteres:</strong> {charCount}
-          </p>
-          <p>
-            <strong>Palavras:</strong> {wordCount}
-          </p>
+          <div className="border px-2 py-2 rounded w-full sm:w-96 resize min-h-[44px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:text-white dark:bg-gray-800 dark:focus:ring-indigo-500">
+            <p>
+              <strong>Caracteres:</strong> {charCount}
+            </p>
+            <p>
+              <strong>Palavras:</strong> {wordCount}
+            </p>
+          </div>
         </div>
       </div>
     </div>
