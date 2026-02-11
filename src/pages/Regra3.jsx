@@ -10,7 +10,7 @@ function Regra3() {
   const calcular = async () => {
     try {
       const response = await fetch(
-        "https://api-nodejs-goer.onrender.com/api/regra3",
+        "https://api-nodejs-fyho.onrender.com/api/regra3",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
