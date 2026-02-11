@@ -12,7 +12,7 @@ const CharacterCount = () => {
     setWordCount(0);
     try {
       const response = await fetch(
-        "https://api-nodejs-goer.onrender.com/api/charcount",
+        "https://api-nodejs-fyho.onrender.com/api/charcount",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
