@@ -7,7 +7,7 @@ const CharacterRemove = () => {
   const remove = async () => {
     try {
       const response = await fetch(
-        "https://api-nodejs-goer.onrender.com/api/removeChars",
+        "https://api-nodejs-fyho.onrender.com/api/removeChars",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
