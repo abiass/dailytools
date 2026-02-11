@@ -10,7 +10,7 @@ const Sorteio = () => {
     setResult(null);
     try {
       const response = await fetch(
-        "https://api-nodejs-goer.onrender.com/api/sorteio",
+        "https://api-nodejs-fyho.onrender.com/api/sorteio",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
