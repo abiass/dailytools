@@ -79,10 +79,10 @@ function DataCount() {
             {/* Input Section */}
             <div className="mb-8">
               <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
-                Data Inicial
+                Data e Hora Inicial
               </label>
               <input
-                type="date"
+                type="datetime-local"
                 value={dataInicio}
                 onChange={(e) => setDataInicio(e.target.value)}
                 onKeyPress={handleKeyPress}
@@ -93,10 +93,10 @@ function DataCount() {
             {/* Second Input */}
             <div className="mb-8">
               <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
-                Data Final
+                Data e Hora Final
               </label>
               <input
-                type="date"
+                type="datetime-local"
                 value={dataFim}
                 onChange={(e) => setDataFim(e.target.value)}
                 onKeyPress={handleKeyPress}
