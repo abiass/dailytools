@@ -78,6 +78,55 @@ app.post("/api/sorteio", (req, res) => {
   res.json({ result });
 });
 
+// Rota para contar diferença entre datas
+app.post("/api/datacount", (req, res) => {
+  const { dataInicio, dataFim } = req.body;
+
+  if (!dataInicio || !dataFim) {
+    return res.status(400).json({ erro: "Data de início e fim são obrigatórias." });
+  }
+
+  const dataInicioObj = new Date(dataInicio);
+  const dataFimObj = new Date(dataFim);
+
+  if (isNaN(dataInicioObj.getTime()) || isNaN(dataFimObj.getTime())) {
+    return res.status(400).json({ erro: "Formato de data inválido." });
+  }
+
+  if (dataFimObj < dataInicioObj) {
+    return res.status(400).json({ erro: "A data final não pode ser menor que a data inicial." });
+  }
+
+  const diferenca = dataFimObj - dataInicioObj;
+
+  const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+  const horas = Math.floor(
+    (diferenca - dias * 1000 * 60 * 60 * 24) / (1000 * 60 * 60)
+  );
+  const minutos = Math.floor(
+    (diferenca - dias * 1000 * 60 * 60 * 24 - horas * 1000 * 60 * 60) / (1000 * 60)
+  );
+  const segundos = Math.floor(
+    (diferenca - dias * 1000 * 60 * 60 * 24 - horas * 1000 * 60 * 60 - minutos * 1000 * 60) / 1000
+  );
+
+  const totalDias = dias;
+  const totalHoras = Math.floor(diferenca / (1000 * 60 * 60));
+  const totalMinutos = Math.floor(diferenca / (1000 * 60));
+  const totalSegundos = Math.floor(diferenca / 1000);
+
+  res.json({
+    dias,
+    horas,
+    minutos,
+    segundos,
+    totalDias,
+    totalHoras,
+    totalMinutos,
+    totalSegundos,
+  });
+});
+
 const PORT = 5000;
 app.listen(PORT, () => {
   console.log(` Servidor rodando em http://localhost:${PORT}`);

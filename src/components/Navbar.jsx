@@ -25,11 +25,11 @@ function Navbar() {
   }, [isDarkMode]);
 
   return (
-    <nav className="bg-blue-600 p-4 shadow-md dark:bg-gray-800">
+    <nav className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 p-4 shadow-lg border-b border-blue-400 dark:border-gray-700">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link
           to="/"
-          className="text-2xl font-bold text-blue-200 dark:text-blue-100"
+          className="text-3xl font-bold bg-gradient-to-r from-white to-blue-100 dark:from-blue-300 dark:to-indigo-300 bg-clip-text text-transparent hover:opacity-80 transition duration-300"
         >
           DailyTools
         </Link>
@@ -37,7 +37,7 @@ function Navbar() {
         {/* Botão toggle modo claro/escuro */}
         <button
           onClick={() => setIsDarkMode((prev) => !prev)}
-          className="mr-4 text-blue-200 cursor-pointer dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-300 transition"
+          className="mr-4 text-white cursor-pointer hover:bg-white hover:bg-opacity-20 p-2 rounded-lg transition duration-200"
         >
           {isDarkMode ? <Sun size={24} /> : <Moon size={24} />}
         </button>

@@ -1,21 +1,24 @@
 import { useState } from "react";
+import { Trash2, Loader, Copy, Check } from "lucide-react";
 
 const CharacterRemove = () => {
   const [text, setText] = useState("");
   const [resultado, setResultado] = useState("");
   const [loading, setLoading] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const remove = async () => {
+    if (!text.trim()) return;
     setLoading(true);
-    setResultado(null);
+    setResultado("");
     try {
       const response = await fetch(
-        "https://api-nodejs-goer.onrender.com/api/removeChars",
+        "https://api-nodejs-fyho.onrender.com/api/removeChars",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ text }),
-        }
+        },
       );
 
       const data = await response.json();
@@ -32,51 +35,95 @@ const CharacterRemove = () => {
     setLoading(false);
   };
 
+  const copyToClipboard = () => {
+    if (resultado) {
+      navigator.clipboard.writeText(resultado);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
   return (
-    <div className="p-6 max-w-xl mx-auto flex flex-col items-center  dark:text-indigo-300">
-      <div className="w-full bg-white dark:bg-gray-900 shadow-lg p-6 rounded-xl flex flex-col gap-6">
-        {/* Título */}
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-red-50 to-pink-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 p-4 md:p-8">
+      <div className="max-w-2xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <div className="inline-block bg-gradient-to-r from-red-500 to-pink-500 p-4 rounded-2xl mb-4">
+            <Trash2 size={40} className="text-white" />
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-red-600 to-pink-600 dark:from-red-400 dark:to-pink-400 bg-clip-text text-transparent">
+            Remover Caracteres
+          </h1>
+          <p className="text-slate-600 dark:text-slate-300 text-lg">
+            Remova caracteres especiais e mantenha apenas letras e números
+          </p>
+        </div>
 
-        <h1 className="text-2xl font-bold mb-6 text-center ">
-          Remover caracteres especiais de textos
-        </h1>
+        {/* Main Card */}
+        <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden border border-red-100 dark:border-gray-700">
+          {/* Gradient Header */}
+          <div className="h-2 bg-gradient-to-r from-red-500 to-pink-500"></div>
 
-        <div className="w-full flex flex-col items-center gap-4 sm:gap-2 ">
-          {/* Texto de entrada */}
-          <textarea
-            className="border px-3 py-2 rounded w-full sm:w-96 resize min-h-[44px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:text-white dark:bg-gray-800 dark:focus:ring-indigo-500"
-            placeholder="Digite aqui o texto para remover caracteres especiais."
-            rows="3"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          />
+          {/* Content */}
+          <div className="p-8 md:p-10">
+            {/* Input Section */}
+            <div className="mb-6">
+              <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                Texto com caracteres especiais
+              </label>
+              <textarea
+                className="w-full px-5 py-4 border-2 border-red-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 focus:border-red-500 focus:ring-2 focus:ring-red-200 dark:focus:ring-red-800 transition-all resize-none"
+                placeholder="Digite o texto com caracteres especiais aqui..."
+                rows="4"
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+              />
+            </div>
 
-          {/* Botão */}
-          <button
-            onClick={remove}
-            type="button"
-            className="bg-blue-500 text-bold text-white px-4 py-2 rounded w-full sm:w-auto transition cursor-pointer hover:bg-blue-600 disabled:opacity-60 disabled:cursor-not-allowed"
-            disabled={loading}
-          >
-            {loading ? (
-              <div className="flex items-center gap-2">
-                <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-                Removendo...
+            {/* Button */}
+            <button
+              onClick={remove}
+              type="button"
+              className="w-full bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white font-bold py-4 rounded-xl transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 mb-8"
+              disabled={loading || !text.trim()}
+            >
+              {loading ? (
+                <>
+                  <Loader size={20} className="animate-spin" />
+                  Removendo...
+                </>
+              ) : (
+                <>
+                  <Trash2 size={20} />
+                  Remover Caracteres Especiais
+                </>
+              )}
+            </button>
+
+            {/* Result Section */}
+            {resultado && (
+              <div className="mb-6">
+                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                  Resultado
+                </label>
+                <div className="relative">
+                  <textarea
+                    className="w-full px-5 py-4 border-2 border-green-300 dark:border-gray-600 rounded-xl bg-gradient-to-r from-green-50 to-emerald-50 dark:from-gray-700 dark:to-gray-600 text-gray-900 dark:text-white readOnly resize-none"
+                    rows="4"
+                    readOnly
+                    value={resultado}
+                  />
+                  <button
+                    onClick={copyToClipboard}
+                    className="absolute top-3 right-3 bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-lg transition-all flex items-center gap-1 text-xs"
+                  >
+                    {copied ? <Check size={16} /> : <Copy size={16} />}
+                    {copied ? "Copiado!" : "Copiar"}
+                  </button>
+                </div>
               </div>
-            ) : (
-              "Remover"
             )}
-          </button>
-
-          {/* Resultado */}
-
-          <textarea
-            className="border px-3 py-2 rounded w-full sm:w-96 resize min-h-[44px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:text-white dark:bg-gray-800 dark:focus:ring-indigo-500"
-            placeholder="Resultado sem caracteres especiais."
-            rows="3"
-            readOnly
-            value={resultado}
-          />
+          </div>
         </div>
       </div>
     </div>
